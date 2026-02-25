@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Buyer Dashboard | Agro Nusantara</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+    }
+
+    .dashboard {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      width: 240px;
+      background: #1b5e20;
+      color: #fff;
+      padding: 30px 20px;
+    }
+
+    .sidebar h2 {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .sidebar a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 0;
+      font-size: 15px;
+      opacity: 0.9;
+    }
+
+    .sidebar a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    /* MAIN */
+    .main {
+      flex: 1;
+      padding: 30px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .card h3 {
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 10px;
+    }
+
+    .card span {
+      font-size: 26px;
+      font-weight: bold;
+      color: #1b5e20;
+    }
+
+    .section {
+      margin-top: 40px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    th, td {
+      padding: 15px;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    th {
+      background: #f1f3f4;
+      color: #555;
+    }
+
+    td {
+      border-top: 1px solid #eee;
+    }
+
+    .status {
+      font-weight: bold;
+      color: #2e7d32;
+    }
+
+    .track-btn {
+      padding: 6px 12px;
+      background: #2e7d32;
+      color: #fff;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="dashboard">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <h2>Buyer Panel</h2>
+    <a href="#">Overview</a>
+    <a href="#">My Orders</a>
+    <a href="tracking.html">Track Shipment</a>
+    <a href="#">Messages</a>
+    <a href="#">Account Settings</a>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="main">
+
+    <h2>Overview</h2>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Total Orders</h3>
+        <span>12</span>
+      </div>
+      <div class="card">
+        <h3>Active Shipments</h3>
+        <span>4</span>
+      </div>
+      <div class="card">
+        <h3>Completed Orders</h3>
+        <span>8</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>My Orders</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Product</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#AN-001</td>
+            <td>Coffee Beans</td>
+            <td class="status">In Transit</td>
+            <td><a href="tracking.html" class="track-btn">Track</a></td>
+          </tr>
+          <tr>
+            <td>#AN-002</td>
+            <td>Palm Oil</td>
+            <td class="status">Delivered</td>
+            <td><a href="tracking.html" class="track-btn">Track</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

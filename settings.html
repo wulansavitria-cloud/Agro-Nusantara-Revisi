@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Settings | Agro Nusantara</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Inter, Arial, sans-serif;
+      background: #f4f6f8;
+      padding: 40px 20px;
+    }
+
+    .settings-box {
+      max-width: 500px;
+      margin: auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #1b5e20;
+    }
+
+    label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+      font-size: 15px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #2e7d32;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #256428;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="settings-box">
+  <h2>Account Preferences</h2>
+
+  <label for="country">Select Country</label>
+  <select id="country">
+    <option value="ID">Indonesia</option>
+    <option value="SG">Singapore</option>
+    <option value="MY">Malaysia</option>
+    <option value="CN">China</option>
+    <option value="US">United States</option>
+    <option value="EU">European Union</option>
+  </select>
+
+  <label for="language">Select Language</label>
+  <select id="language">
+    <option value="en">English</option>
+    <option value="id">Bahasa Indonesia</option>
+  </select>
+
+  <button onclick="saveSettings()">Save Settings</button>
+</div>
+
+<script>
+  // LOAD SAVED SETTINGS
+  window.onload = function () {
+    const savedCountry = localStorage.getItem("country");
+    const savedLanguage = localStorage.getItem("language");
+
+    if (savedCountry) {
+      document.getElementById("country").value = savedCountry;
+    }
+
+    if (savedLanguage) {
+      document.getElementById("language").value = savedLanguage;
+      applyLanguage(savedLanguage);
+    }
+  };
+
+  function saveSettings() {
+    const country = document.getElementById("country").value;
+    const language = document.getElementById("language").value;
+
+    localStorage.setItem("country", country);
+    localStorage.setItem("language", language);
+
+    applyLanguage(language);
+
+    alert("Settings saved successfully");
+  }
+
+  function applyLanguage(lang) {
+    if (lang === "id") {
+      document.querySelector("h2").innerText = "Preferensi Akun";
+      document.querySelector("label[for='country']").innerText = "Pilih Negara";
+      document.querySelector("label[for='language']").innerText = "Pilih Bahasa";
+      document.querySelector("button").innerText = "Simpan Pengaturan";
+    } else {
+      document.querySelector("h2").innerText = "Account Preferences";
+      document.querySelector("label[for='country']").innerText = "Select Country";
+      document.querySelector("label[for='language']").innerText = "Select Language";
+      document.querySelector("button").innerText = "Save Settings";
+    }
+  }
+</script>
+
+</body>
+</html>
